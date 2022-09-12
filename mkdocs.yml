@@ -27,7 +27,7 @@ extra:
     - name: 简体中文
       link: https://zh.apiflask.com
       lang: zh
-    - name: Persian
+    - name: فارسی
       link: https://fa.apiflask.com
       lang: fa
 copyright:
