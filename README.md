@@ -2,13 +2,13 @@
 ![](https://apiflask.com/_assets/apiflask-logo.png)
 
 
-# Foo Translation of APIFlask Documentation
+# Persian Translation of APIFlask Documentation
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/456180b4-55f0-417c-9c4e-88e407a24011/deploy-status)](https://app.netlify.com/sites/foo-apiflask/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/456180b4-55f0-417c-9c4e-88e407a24011/deploy-status)](https://app.netlify.com/sites/fa-apiflask/deploys)
 
 Translation source:
 
-<https://github.com/apiflask/docs-foo>
+<https://github.com/apiflask/docs-fa>
 
 
 ## Translation Workflow
@@ -18,17 +18,17 @@ Welcome to contribute to this translation project!
 Here is the basic workflow for partcipating the translation:
 
 - Create a pull request to add your name to the chapter you want to translate in the chapters list below.
-- Fork this repo ([apiflask/docs-foo](https://github.com/apiflask/docs-foo)), then clone your fork locally (replace the `{username}` below with your GitHub username):
+- Fork this repo ([apiflask/docs-fa](https://github.com/apiflask/docs-fa)), then clone your fork locally (replace the `{username}` below with your GitHub username):
 
 ```
-$ git clone https://github.com/{username}/docs-foo
-$ cd docs-foo
-$ git remote add upstream https://github.com/apiflask/docs-foo
+$ git clone https://github.com/{username}/docs-fa
+$ cd docs-fa
+$ git remote add upstream https://github.com/apiflask/docs-fa
 ```
 
 - Read the [conributing guide](/contributing) to build the development environment (skip the fork part).
 - Read the translation guide (WIP) to understand the basic requirements on translation and wording.
-- Create a new branch to translate the corresponding file under the `docs_foo/` directory.
+- Create a new branch to translate the corresponding file under the `docs_fa/` directory.
 - Run `mkdocs serve` to preview the docs and fix any issues.
 - Submit the pull request and wait for reivew.
 
