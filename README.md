@@ -1,9 +1,72 @@
 
 ![](https://apiflask.com/_assets/apiflask-logo.png)
 
-# APIFlask
 
-[![Build status](https://github.com/apiflask/apiflask/workflows/build/badge.svg)](https://github.com/apiflask/apiflask/actions) [![codecov](https://codecov.io/gh/apiflask/apiflask/branch/main/graph/badge.svg?token=2CFPCZ1DMY)](https://codecov.io/gh/apiflask/apiflask)
+# Foo Translation of APIFlask Documentation
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/456180b4-55f0-417c-9c4e-88e407a24011/deploy-status)](https://app.netlify.com/sites/foo-apiflask/deploys)
+
+Translation source:
+
+<https://github.com/apiflask/docs-foo>
+
+
+## Translation Workflow
+
+Welcome to contribute to this translation project!
+
+Here is the basic workflow for partcipating the translation:
+
+- Create a pull request to add your name to the chapter you want to translate in the chapters list below.
+- Fork this repo ([apiflask/docs-foo](https://github.com/apiflask/docs-foo)), then clone your fork locally (replace the `{username}` below with your GitHub username):
+
+```
+$ git clone https://github.com/{username}/docs-foo
+$ cd docs-foo
+$ git remote add upstream https://github.com/apiflask/docs-foo
+```
+
+- Read the [conributing guide](/contributing) to build the development environment (skip the fork part).
+- Read the translation guide (WIP) to understand the basic requirements on translation and wording.
+- Create a new branch to translate the corresponding file under the `docs_foo/` directory.
+- Run `mkdocs serve` to preview the docs and fix any issues.
+- Submit the pull request and wait for reivew.
+
+
+## Chapters
+
+- [ ] Home (index.md)
+- [ ] Documentation Index (docs.md)
+- [ ] Migrating from Flask (migrating.md)
+- [ ] Basic Usage (usage.md)
+- [ ] Request Handling (request.md)
+- [ ] Response Formatting (response.md)
+- [ ] Data Schema (schema.md)
+- [ ] Authentication (authentication.md)
+- [ ] OpenAPI Generating (openapi.md)
+- [ ] Swagger UI and Redoc (api-docs.md)
+- [ ] Configuration (configuration.md)
+- [ ] Error Handling (error-handling.md)
+- [ ] Examples (examples.md)
+- [ ] Comparison and Motivations (comparison.md)
+- [ ] Authors (authors.md)
+- [ ] Changelog (changelog.md)
+- [ ] Contributing Guide (contributing.md)
+- [ ] API Reference:
+    - [ ] APIFlask (api/app.md)
+    - [ ] APIBlueprint (api/blueprint.md)
+    - [ ] Exceptions (api/exceptions.md)
+    - [ ] OpenAPI (api/openapi.md)
+    - [ ] Schemas (api/schemas.md)
+    - [ ] Fields (api/fields.md)
+    - [ ] Validators (api/validators.md)
+    - [ ] Route (api/route.md)
+    - [ ] Security (api/security.md)
+    - [ ] Helpers (api/helpers.md)
+    - [ ] Commands (api/commands.md)
+
+
+# Introduction
 
 APIFlask is a lightweight Python web API framework based on [Flask](https://github.com/pallets/flask) and [marshmallow-code](https://github.com/marshmallow-code) projects. It's easy to use, highly customizable, ORM/ODM-agnostic, and 100% compatible with the Flask ecosystem.
 
