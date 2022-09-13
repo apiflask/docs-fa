@@ -45,37 +45,37 @@ markdown_extensions:
   - pymdownx.progressbar
   - attr_list
   - toc:
-        permalink: True
+      permalink: True
 nav:
-  - Home: index.md
-  - Documentation Index: docs.md
-  - Migrating from Flask: migrating.md
-  - Basic Usage: usage.md
-  - Request Handling: request.md
-  - Response Formatting: response.md
-  - Data Schema: schema.md
-  - Authentication: authentication.md
-  - OpenAPI Generating: openapi.md
-  - API Documentations: api-docs.md
-  - Configuration: configuration.md
-  - Error Handling: error-handling.md
-  - Examples: examples.md
-  - API Reference:
-    - APIFlask: api/app.md
-    - APIBlueprint: api/blueprint.md
-    - Exceptions: api/exceptions.md
-    - OpenAPI: api/openapi.md
-    - Schemas: api/schemas.md
-    - Fields: api/fields.md
-    - Validators: api/validators.md
-    - Route: api/route.md
-    - Security: api/security.md
-    - Helpers: api/helpers.md
-    - Commands: api/commands.md
-  - Comparison and Motivations: comparison.md
-  - Authors: authors.md
-  - Changelog: changelog.md
-  - Contributing Guide: contributing.md
+  - خانه: index.md
+  - فهرست مستندات: docs.md
+  - مهاجرت از فلاسک: migrating.md
+  - استفاده پایه: usage.md
+  - مدیریت ریکوئست ها: request.md
+  - فرمت کردن پاسخ ها: response.md
+  - طرحواره داده ها: schema.md
+  - احراز هویت: authentication.md
+  - ایجاد OpenAPI: openapi.md
+  - مستندات API: api-docs.md
+  - پیکربندی: configuration.md
+  - مدیریت ارور ها: error-handling.md
+  - مثال ها: examples.md
+  - مرجع API:
+      - APIFlask: api/app.md
+      - APIBlueprint: api/blueprint.md
+      - Exceptions: api/exceptions.md
+      - OpenAPI: api/openapi.md
+      - Schemas: api/schemas.md
+      - Fields: api/fields.md
+      - Validators: api/validators.md
+      - Route: api/route.md
+      - Security: api/security.md
+      - Helpers: api/helpers.md
+      - Commands: api/commands.md
+  - مقایسه و انگیزه ها: comparison.md
+  - توسعه دهندگان: authors.md
+  - تغییرات: changelog.md
+  - راهنمای مشارکت: contributing.md
 plugins:
   - search
   - mkdocstrings:
