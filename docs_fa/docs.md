@@ -1,56 +1,46 @@
-# Documentation Index
+# فهرست مستندات
 
-Welcome to APIFlask's documentation!
+به مستندات APIFlask خوش آمدید!
 
+## نسخه ها
 
-## Versions
+* [آخرین نسخه](https://fa.apiflask.com): مستندات برای آخرین نسخه سورس کد
+* [V1](https://v1.apiflask.com): مستندات آخرین نسخه 1.
 
-- [Latest](https://apiflask.com): The docs for the latest source code on GitHub.
-- [V1](https://v1.apiflask.com): The docs for the latest 1.x release.
+## فهرست
 
+برای یادگیری APIFlask به ترتیب زیر جلو بروید:
 
-## Contents
+* **[مقدمه](/)**: توضیح کلی APIFlask
+* **[مهاجرت از فلسک](/migrating)**: راهنما و یاداشت های مربوط به مهاجرت از فلاسک.
+* **[استفاده پایه](/usage)**: شروع کار با APIFlask.
+* **[مدیریت ریکوئست ها](/request)**: اطلاعات مقدماتی درباره دیکرویتور `@app.input`.
+* **[فرمت کردن پاسخ ها](/response)**:  اطلاعات مقدماتی درباره دیکوریتور `@app.output`.
+* **[طرحواره داده ها](/schema)**: معرفی و مقدمه ای درباره ساخت طرحواره برای ورودی/خروجی.
+* **[ایجاد OpenAPI](/openapi)**: معرفی ای درباره چگونگی کارکرد ایجاد OpenAPI و روش شخصی سازی آن با `@app.doc` و مقادیر کانفیگ آن.
+* **[احراز هویت](/authentication)**:معرفی نحوه پشتیبانی از نحوه احراز هویت در برنامه شما.
+* **[مستندات API](/api-docs)**: معرفی روش استفاده و کانفیگ ابزار های مستندسازی API.
+* **[پیکربندی](/configuration)**: لیستی از تمام متغیرهای پیکربندی داخلی.
+* **[مثال ها](/examples)**: مجموعه ای از مثال های کاربردی.
 
-Go through the following chapters to learn how to use APIFlask:
+فصل های زیر برای مشارکت کنندگانی که می خواهند در مورد APIFlask بیشتر بدانند مفید است
 
-- **[Introduction](/)**: A general introduction for APIFlask.
-- **[Migrating from Flask](/migrating)**: Migrating guide and notes.
-- **[Basic Usage](/usage)**: Get started with APIFlask.
-- **[Request Handling](/request)**: The detailed introduction of the `@app.input` decorator.
-- **[Response Formatting](/response)**:  The detailed introduction of the `@app.output` decorator.
-- **[Data Schema](/schema)**: Introduce how to write an input/output data schema.
-- **[OpenAPI Generating](/openapi)**: Introduce how the OpenAPI generation works and how to customize
-it with `@app.doc` decorator and configuration variables.
-- **[Authentication](/authentication)**: Introduce how to implement authentication support for your application.
-- **[API Documentation](/api-docs)**: Introduce the usage and configuration of the API
-documentation tools.
-- **[Configuration](/configuration)**: A list of all the built-in configuration variables
-- **[Examples](/examples)**: A collection of application examples.
+* **[مرجع API](/api/app)**: مرجع API(ریفرنس) APIFlask.
+* **[مقایسه و انگیزه](/comparison)**: تفاوت های میان پروژه های مشابه و APIFlask.
+* **[توسعه دهندگان](/authors)**: توسعه دهنگان APIFlask.
+* **[تغییرات](/changelog)**: تغییرات APIFlask در هر نسخه.
 
-The following chapters are useful for contributors and who want to know more about
-APIFlask:
+## مستندات دیگر
 
-- **[API Reference](/api/app)**: The API reference of APIFlask.
-- **[Comparison and Motivations](/comparison)**: The differences between APIFlask and similar projects.
-- **[Authors](/authors)**: The authors of APIFlask.
-- **[Changelog](/changelog)**: The changelog of each version of APIFlask.
+من سعی خواهم کرد تمام کاربردهای اساسی در اسناد APIFlask را پوشش دهم. با این حال، برای استفاده های پیشرفته، ممکن است لازم باشد اسناد فریمورک و ابزارهایی را که APIFlask بر اساس آنها ساخته شده است بخوانید:
 
-
-## External Documentations
-
-I will try to cover all the basic usages in APIFlask's documentation. However, for
-advanced usages, you may need to read the documentation of the framework, tools
-that APIFlask based on:
-
-- **[Flask][_flask]{target=_blank}**: The knowledge of Flask is required.
-- **[marshmallow][_marshmallow]{target=_blank}**: Advanced reference for schema.
-- **[Flask-HTTPAuth][_flask_httpauth]{target=_blank}**: Advanced reference for
-the usage of `HTTPBasicAuth` and `HTTPTokenAuth`.
-- **[webargs][_webargs]{target=_blank}**: Useful for contributors.
-- **[apispec][_apispec]{target=_blank}**: Useful for contributors.
-- **[OpenAPI][_openapi]{target=_blank}**: The OpenAPI Specification.
-- **[JSON Schema][_jsonschema]{target=_blank}**: Useful when you want to set a custom
-error schema and you don't want to use schema class.
+* **[فلسک][_flask]{target=_blank}**: دانستن درباره فلسک ضروری است.
+* **[مارشمالو][_marshmallow]{target=_blank}**: مرجع پیشرفته برای طرحواره.
+* **[Flask-HTTPAuth][_flask_httpauth]{target=_blank}**: مرجع پیشرفته برای استفاده از `HTTPBasicAuth` و `HTTPTokenAuth`.
+* **[webargs][_webargs]{target=_blank}**: مفید برای مشارکت کنندگان
+* **[apispec][_apispec]{target=_blank}**: مفید برای مشارکت کنندگان
+* **[OpenAPI][_openapi]{target=_blank}**: مشخصات OpenAPI
+* **[طرح واره JSON][_jsonschema]{target=_blank}**: زمانی مفید است که می خواهید یک طرحواره خطای سفارشی تنظیم کنید و نمی خواهید از کلاس طرح استفاده کنید.
 
 [_flask]: https://flask.palletsprojects.com/
 [_marshmallow]: https://marshmallow.readthedocs.io/

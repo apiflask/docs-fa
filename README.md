@@ -33,8 +33,8 @@ $ mkdocs serve
 
 ## فصل ها
 
-* [ ] Home (index.md)
-* [ ] Documentation Index (docs.md)
+* [X] Home (index.md) [@mmdbalkhi](https://github.com/mmdbalkhi)
+* [X] Documentation Index (docs.md) [@mmdbalkhi](https://github.com/mmdbalkhi)
 * [ ] Migrating from Flask (migrating.md)
 * [ ] Basic Usage (usage.md)
 * [ ] Request Handling (request.md)
@@ -68,7 +68,7 @@ APIFlask یک web-api فریمورک سبک بر اساس [فلسک](https://git
 
 با APIFlask شما میتوانید:
 
-* دیکریتور های بیشتری برای ویو-فانکشن ها(`@app.input()`,          `@app.output()`,          `@app.get()`,  `@app.post()` و بیشتر)
+* دیکریتور های بیشتری برای ویو-فانکشن ها(`@app.input()`,  `@app.output()`,  `@app.get()`,  `@app.post()` و بیشتر)
 * اعتبار سنجی خودکار درخواست ها و سریال زدایی
 * سریال سازی و فرمت خودکار پاسخ ها
 * ساخت خودکار [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification) (OAS, formerly Swagger Specification) تولید مستندات
@@ -309,11 +309,11 @@ def hello():
 
 ## رابطه با مارشمالو
 
-Apiflask الگو مارشمالو را به عنوان الگو داده می پذیرد ، از WebARGS برای تأیید داده های درخواست در برابر طرح الگو می کند و از APISPEC برای تولید بازنمایی OpenAPI از طرح استفاده می کند.
+Apiflask طرحواره مارشمالو را به عنوان طرحواره داده می پذیرد ، از WebARGS برای تأیید داده های درخواست در برابر طرح طرحواره می کند و از APISPEC برای تولید بازنمایی OpenAPI از طرح استفاده می کند.
 شما می توانید مانند گذشته طرح های مارشمالو را بسازید ، اما Apiflask همچنین برخی از API های مارشمالو را برای راحتی در معرض دید قرار می دهد (این اختیاری است ، شما هنوز هم می توانید همه چیز را مستقیماً از مارشمالو وارد کنید):
 
-* `apiflask.Schema`: کلاس پایه الگوی مارشمالو
-* `apiflask.fields`: فیلد های ماشرمالو، شامل هر دوی مارشمالو و Flask-Marshmallow می‌شود. مراقب باشید که نام های مستعار (`Url`,    `Str`,    `Int`,    `Bool`, غیره) حذف شده اند.
+* `apiflask.Schema`: کلاس پایه طرحوارهی مارشمالو
+* `apiflask.fields`: فیلد های ماشرمالو، شامل هر دوی مارشمالو و Flask-Marshmallow می‌شود. مراقب باشید که نام های مستعار (`Url`,     `Str`,     `Int`,     `Bool`, غیره) حذف شده اند.
 * `apiflask.validators`: اعتبارسنج های مارشمالو
 
 </p>
