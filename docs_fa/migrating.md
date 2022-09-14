@@ -1,12 +1,10 @@
-# Migrating from Flask
+# مهاجرت از فلسک
 
-Since APIFlask is a thin wrapper on top of Flask, you only need to change very little
-code to migrating your application to APIFlask (typically less than ten lines of code).
+از آنجایی که APIFlask بر اساس فلسک است، شما فقط نیاز به تغییر بسیار کمی دارید(معمولا کمتر از ده خط کد)
 
+## کلاس `Flask` -> `کلاس APIFlask`
 
-## `Flask` class -> `APIFlask` class
-
-It's how you create the Flask application:
+نحوه ایجاد یک برنامه در فلسک اینگونه است:
 
 ```python
 from flask import Flask
@@ -14,7 +12,7 @@ from flask import Flask
 app = Flask(__name__)
 ```
 
-Now change to APIFlask:
+نحوه تغییر آن به APIFlask:
 
 ```python
 from apiflask import APIFlask
@@ -22,10 +20,9 @@ from apiflask import APIFlask
 app = APIFlask(__name__)
 ```
 
+## کلاس `Blueprint` -> کلاس `APIBlueprint`
 
-## `Blueprint` class -> `APIBlueprint` class
-
-It's how you create the Flask application:
+نحوه ساخت یک برنامه در فلسک اینگونه است:
 
 ```python
 from flask import Blueprint
@@ -33,7 +30,7 @@ from flask import Blueprint
 bp = Blueprint('foo', __name__)
 ```
 
-Now change to APIFlask:
+نحوه تغییر آن به APIFlask:
 
 ```python
 from apiflask import APIBlueprint
@@ -43,21 +40,22 @@ bp = APIBlueprint('foo', __name__)
 
 !!! tip
 
-    You can register a `Blueprint` object to an `APIFlask` instance, but you
-    can't register an `APIBlueprint` object to a `Flask` instance.
+    شما میتوانید از یک آبجکت `Blueprint` در APIFlask استفاده کنید،
+    اما نمیتوانید از `APIBlueprint` در فلسک استفاده کنید.
 
+## استفاده از میانبرهای مسیر (اختیاری)
 
-## Use route shortcuts (optional)
-
-APIFlask provides some route shortcuts, you can update a view function:
+APIFlask برخی از میانبرهای مسیر را فراهم می کند، می توانید یک تابع ویو را به روز کنید:
 
 ```python hl_lines="1"
 @app.route('/pets', methods=['POST'])
 def create_pet():
+
     return {'message': 'created'}
+
 ```
 
-to:
+به:
 
 ```python hl_lines="1"
 @app.post('/pets')
@@ -67,17 +65,15 @@ def create_pet():
 
 !!! tip
 
-    You can mix the use of `app.route()` with route shortcuts. Flask 2.0 will include
-    these route shortcuts.
+    شما میتوانید میانبر های مسیر را با `app.route()` ترکیب کنید. فلسک ۲.۰ شامل این میانبر ها است.
 
-
-## Class-based views (MethodView)
+## ویو های بر اساس کلاس (متودویو)
 
 !!! warning "Version >= 0.5.0"
 
-    This feature was added in the [version 0.5.0](/changelog/#version-050).
+    این ویژگی در [نسخه 0.5.0](/changelog/#version-050). آمده است.
 
-APIFlask support to use the `MethodView`-based view class, for example:
+APIFlask از ویو کلاس های `MethodView` بیس پشتیبانی میکند. برای مثال:
 
 ```python
 from apiflask import APIFlask, Schema, input, output
@@ -110,29 +106,24 @@ class Pet(MethodView):
 app.add_url_rule('/pets/<int:pet_id>', view_func=Pet.as_view('pet'))
 ```
 
-The `View`-based view class is not supported, you can still use it but currently
-APIFlask can't generate OpenAPI spec (and API documentation) for it.
+کلاس های ویو مبتدی بر `View` پشتیبانی نمیشود ولی همچنان میتوانید از آن استفاده کنید اما در حال حاضر APIFlask نمیتواند مشخصات OpenAPI (و مستندات API) را برای آن ایجاد کند.
 
+## تغییرات رفتاری دیگر و یادداشت ها
 
-## Other behavior changes and notes
+### توضیح ایمپورت کردن
 
-
-### Import statements
-
-You only need to import `APIFlask`, `APIBlueprint`, and other utilities APIFlask
-provides from the `apiflask` package. For others, you still import them from
-the `flask` package:
+شما فقط `APIBlueprint` و `APIFlask` و سایر ابزار های کمکی را از پکیج که توسط `apiflask` ارائه میشود را از ان ایمپورت کنید.
+برای سایر آنها، باید از پکیج `flask` استفاده کنید.
 
 ```python
 from apiflask import APIFlask, APIBlueprint
 from flask import request, escape, render_template, g, session, url_for
 ```
 
+### مقایسه `abort()` در APIFlask و Flask
 
-### APIFlask's `abort()` vs Flask's `abort()`
-
-APIFlask's `abort()` function will return a JSON error response while Flask's `abort()`
-returns an HTML error page:
+APIFlask's `abort()` function will return a JSON error response while Flask's `abort()` returns an HTML error page:
+تابع `abort()` در APIFlask یک پاسخ خطای JSONی بر بر میگرداند در صورتی که `abort()` در فلسک یک صفحه HTMLی برای ارور بر میگرداند.
 
 ```python
 from apiflask import APIFlask, abort
@@ -144,7 +135,7 @@ def foo():
     abort(404)
 ```
 
-In the example above, when the user visits `/foo`, the response body will be:
+در مثال فوق، زمانی که کاربر `/foo` را بازدید میکند، بدنه پاسخ به این صورت خواهد بود:
 
 ```json
 {
@@ -154,19 +145,15 @@ In the example above, when the user visits `/foo`, the response body will be:
 }
 ```
 
-You can use `message` and `detail` parameter to pass error message and detailed
-information in the `abort()` function.
+شما میتوانید از پارامتر های `message` و `detail` برای پاس کردن پیغام و دلیل ارور به تابع `abort()` استفاده کنید.
 
 !!! warning
+‍    تابع `abort_json()` از [نسخه 0.4.0](/changelog/#version-040) به بعد با نام `abort()` شناخته شده است.
 
-    The function `abort_json()` was renamed to `abort()` in the
-    [version 0.4.0](/changelog/#version-040).
+### خطا های JSON و ترکیب استفاده `flask.abort()` و `apiflask.abort()`
 
-
-### JSON errors and mix the use of `flask.abort()` and `apiflask.abort()`
-
-When you change the base application class to `APIFlask`, all the error responses
-will automatically convert to JSON format even if you use Flask's `abort()` function:
+زمانی که بیس کلاس را به `APIFlask` تغییر میدهید، تمام پاسخ
+های ارور به صورت پیشفرض تبدیل به فرمت JSON میشوند حتی اگر از تابع `abort()` فلسک استفاده کنید:
 
 ```python
 from apiflask import APIFlask
@@ -179,23 +166,23 @@ def foo():
     abort(404)
 ```
 
-If you want to disable this behavior, just set `json_errors` parameter to `False`:
+اگر میخواهید این رفتار را غیر فعال کنید، فقط کافی است که پارامتر `json_errors` را `Flase` ست کنید.
 
 ```python hl_lines="3"
 from apiflask import APIFlask
 
 app = APIFlask(__name__, json_errors=False)
+
 ```
 
-Now you can still use `abort` from `apiflask` package to return a JSON error
-response. To mix the use of `flask.abort` and `apiflask.abort`, you will need
-to import one of them with a different name:
+اکنون همچنان میتوانید از `abort` از `apiflask` برای بر گرداندن پاسخ های ارور به صورت JSON
+ استفاده کنید. برای ترکیب استفاده از `flask.abort` و `apiflask.abort`، باید یکی را به نام دیگری ایمپورت کنید:
 
 ```python
 from apiflask import abort as abort_json
 ```
 
-Here is a full example:
+مثال کامل در اینجا آمده است:
 
 ```python hl_lines="1 14"
 from apiflask import APIFlask, abort as abort_json
@@ -203,51 +190,41 @@ from flask import abort
 
 app = APIFlask(__name__, json_errors=False)
 
-
 @app.get('/html-error')
 def foo():
-    abort(404)
 
+    abort(404)
 
 @app.get('/json-error')
 def bar():
+
     abort_json(404)
+
 ```
 
+### مقادیر بازگشتی تابع view
 
-### The return values of view function
-
-For a simple view function without `@app.output` decorator, you can return a dict or
-a list as JSON response. The returned dict and list will be converted to a JSON
-response automatically (by calling
-[`jsonify()`](https://flask.palletsprojects.com/api/#flask.json.jsonify) underly).
+برای یک تابع ویو ساده بدون دکوراتور ``@app.output``، می‌توانید یک دیکشنری یا لیست را به عنوان پاسخ JSON برگردانید. دیکشنری و لیست برگشتی به صورت خودکار به پاسخ JSON تبدیل می شود(با صدا زدن
+[`jsonify()`](https://flask.palletsprojects.com/api/#flask.json.jsonify) به صورت داخلی).
 
 !!! tip
-
-    Although list looks like tuple, only list return values will be serialized to JSON
-    response. Tuple has
-    [special meaning](https://flask.palletsprojects.com/quickstart/#about-responses).
-
-    Starting from Flask 2.2, the list return values are supported natively.
+    اگر چه لیست به نظر می رسد مثل تاپل فقط مقادیر بازگشتی لیست به پاسخ JSON سریال می شوند.
+     تاپل [معنای خاص](https://flask.palletsprojects.com/quickstart/#about-responses) دارد. با شروع از
+     فلسک 2.2، مقادیر بازگشتی لیست به صورت بومی پشتیبانی می شوند.
 
 ```python
 @app.get('/foo')
 def foo():
     return {'message': 'foo'}
 
-
 @app.get('/bar')
 def bar():
     return ['foo', 'bar', 'baz']
 ```
 
-When you added a `@app.output` decorator for your view function, APIFlask expects you to
-return an ORM/ODM model object or a dict/list that matches the schema you passed in the
-`@app.output` decorator. If you return a `Response` object, APIFlask will return it
-directly without any process.
+هنگامی که یک دیکوریتور ``@app.output`` را برای تابع ویو خود اضافه کردید، APIFlask از شما انتظار دارد که یک آبجکت مدل ORM/ODM یا یک dict/list که با طرحی که در دیکوریتور ``@app.output`` ارسال کرده اید مطابقت دارد، برگردانید. اگر یک آبجکت ``Response`` را برگردانید، APIFlask آن را مستقیماً بدون هیچ فرآیندی برمی گرداند.
 
+## اقدامات بعدی
 
-## Next step
-
-Now your application is migrated to APIFlask. Check out the
-[Basic Usage](/usage) chapter to learn more about APIFlask. Enjoy!
+اکنون برنامه شما به APIFlask منتقل شده است. برای اطلاعات بیشتر فصل [استفاده پایه](/usage)
+را بررسی کنید. لذت ببرید!
