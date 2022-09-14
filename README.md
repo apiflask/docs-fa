@@ -35,7 +35,7 @@ $ mkdocs serve
 
 * [X] Home (index.md) [@mmdbalkhi](https://github.com/mmdbalkhi)
 * [X] Documentation Index (docs.md) [@mmdbalkhi](https://github.com/mmdbalkhi)
-* [ ] Migrating from Flask (migrating.md)
+* [X] Migrating from Flask (migrating.md) [@mmdbalkhi](https://github.com/mmdbalkhi)
 * [ ] Basic Usage (usage.md)
 * [ ] Request Handling (request.md)
 * [ ] Response Formatting (response.md)
@@ -140,7 +140,7 @@ def get_pet(pet_id):
     if pet_id > len(pets) - 1:
         abort(404)
     # همچنین می توانید یک نمونه کلاس مدل ORM/ODM را مستقیماً برگردانید
-    # APIFlask شی را به فرمت JSON سریال می کند
+    # APIFlask آبجکت را به فرمت JSON سریال می کند
     return pets[pet_id]
 
 @app.patch('/pets/<int:pet_id>')
