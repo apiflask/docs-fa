@@ -1,53 +1,49 @@
-# Basic Usage
+# استفاده مقدماتی
 
-This chapter will cover the primary usage of APIFlask.
+این فصل استفاده اصلی از APIFlask را پوشش می‌دهد.
 
+## پیش نیاز ها
 
-## Prerequisites
+- پایتون ورژن ۳.۷ یا بالاتر
+- فلسک ورژن ۱.۱ یا بالاتر
 
-- Python 3.7+
-- Flask 1.1+
+همچنان شما باید به مقدمات فلسک آشنا باشید. اینجا برخی منابع مفید رایگان برای یادگیری فلسک آورده شده است:
 
-You also need to know the basic of Flask. Here are some useful free resources
-to learn Flask:
-
-- [Flask's Documentation](https://flask.palletsprojects.com/){target=_blank}
-- [Official Flask Tutorial](https://flask.palletsprojects.com/tutorial/#tutorial){target=_blank}
-- [The Flask Mega-Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world){target=_blank}
-- [Flask for Beginners](https://github.com/greyli/flask-tutorial){target=_blank} (Chinese)
+- [مستندات فلسک](https://flask.palletsprojects.com/){target=_blank}
+- [آموزش رسمی فلسک](https://flask.palletsprojects.com/tutorial/#tutorial){target=_blank}
+- [مگا آموزش فلسک](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world){target=_blank}
+- [فلسک برای مبتدی ها](https://github.com/greyli/flask-tutorial){target=_blank} (Chinese)
 
 
-## Installation
+## طریقه نصب
 
-=== "Linux/macOS"
+=== "لینوکس/مک"
 
     ```
     $ pip3 install apiflask
     ```
 
-=== "Windows"
+=== "ویندوز"
 
     ```
     > pip install apiflask
     ```
 
-!!! tip "Python dependency management tools"
+!!! tip "ابزار های مدیریت وابستگی در پایتون"
 
-    The command above use [pip][_pip]{target=_blank} to install APIFlask, you can also use
-    other dependencies management tools such as [Poetry][_poetry]{target=_blank},
-    [Pipenv][_pipenv]{target=_blank}, [PDM][_pdm]{target=_blank}, etc.
+    دستور بالا از [pip][_pip]{target=_blank} برای نصب APIFlask استفاده میکند. شما میتوانید از سایر ابزار های مدیریت وابستگی مانند[Poetry][_poetry]{target=_blank}،
+    [Pipenv][_pipenv]{target=_blank} و [PDM][_pdm]{target=_blank} استفاده کنید.
 
     [_pip]: https://pip.pypa.io/
     [_poetry]: https://python-poetry.org/
     [_pipenv]: https://pipenv.pypa.io/
     [_pdm]: https://pdm.fming.dev/
 
+## ساخت یک `app` با کلاس `APIFlask`
 
-## Create an `app` instance with `APIFlask` class
-
-Similar to what you did to create a Flask `app` instance, you will need to import
-`APIFlask` class from `apiflask` package, then create the `app` instance from
-the `APIFlask` class:
+مشابه با آنچه که در فلسک انجام می‌دهید، شما باید یک `app` ایجاد کنید. برای اینکار شما نیاز دارید تا
+کلاس `APIFlask` از بسته `apiflask` ایمپورت و سپس `app` را توسط کلاس `APIFlask` ایجاد
+کنید:
 
 ```python hl_lines="1 3"
 from apiflask import APIFlask
@@ -60,24 +56,24 @@ def index():
     return {'message': 'hello'}
 ```
 
-The default title and version of the API will be `APIFlask` and `0.1.0`; you can
-pass the `title` and the `version` arguments to change these settings:
+به صورت پیشفرض نام و ورژن API به ترتیب `APIFlask` و `0.1.0` خواهد بود؛
+اما شما میتوانید آرگومان های`title` و `version` ها به دلخواه خود تغییر دهید.
 
 ```python
 app = APIFlask(__name__, title='Wonderful API', version='1.0')
 ```
 
-To run this application, you can save it as `app.py`, then run the `flask run` command:
+برای اجرای این برنامه، این برنامه را در فایل `app.py` ذخیره کنید و سپس دستور `flask run` را اجرا کنید.
 
 ```bash
 $ flask run
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-If your script's name isn't `app.py`, you will need to declare which application
-should be started before execute `flask run`. See the note below for more details.
+اگر نام اسکریپت شما `app.py` نباشد، شما باید قبل از اجرای `flask run` به صورت واضح برنامه خودتان را مشخص کنید.
+برای اطلاعات بیشتر یاداشت زیر را بخوانید:
 
-??? note "Assign the specific application to run"
+??? note "تخصیص یک برنامه خاص برای اجرا"
 
     In default, Flask will look for an application instance called `app` or `application`
     or application factory function called `create_app` or `make_app` in module/package
