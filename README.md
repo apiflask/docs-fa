@@ -163,7 +163,7 @@ def update_pet(pet_id, data):
 from apiflask import APIFlask, Schema, abort
 from apiflask.fields import Integer, String
 from apiflask.validators import Length, OneOf
-from flask.views import MethodView
+from apiflask.views import MethodView
 
 app = APIFlask(__name__)
 

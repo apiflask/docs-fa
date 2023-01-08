@@ -557,7 +557,7 @@ following format:
 
     Read the *[Data Schema](/schema)* chapter for the advanced topics on data schema.
 
-Now let's add it to the view function which used to create a new pet:
+Now let's add it to the view function which is used to create a new pet:
 
 ```python hl_lines="1 14"
 from apiflask import APIFlask, Schema, input
@@ -712,7 +712,7 @@ def delete_pet(pet_id):
     return ''
 ```
 
-From version 0.4.0, you can use a empty dict to represent empty schema:
+From version 0.4.0, you can use an empty dict to represent empty schema:
 
 ```python hl_lines="2"
 @app.delete('/pets/<int:pet_id>')
@@ -1022,8 +1022,8 @@ You can create a group of routes under the same URL rule with the `MethodView` c
 Here is a simple example:
 
 ```python
-from flask.views import MethodView
 from apiflask import APIFlask
+from apiflask.views import MethodView
 
 app = APIFlask(__name__)
 
