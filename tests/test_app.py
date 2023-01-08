@@ -1,6 +1,6 @@
 import pytest
+from apispec import BasePlugin
 from flask import Blueprint
-from flask.views import MethodView
 from openapi_spec_validator import validate_spec
 
 from .schemas import Bar
@@ -11,6 +11,7 @@ from apiflask import APIFlask
 from apiflask import Schema
 from apiflask.fields import Integer
 from apiflask.fields import String
+from apiflask.views import MethodView
 
 
 def test_app_init(app):
@@ -296,3 +297,19 @@ def test_return_list_as_json(app, client):
     assert rv.status_code == 201
     assert rv.headers['Content-Type'] == 'application/json'
     assert rv.json == test_list
+
+
+def test_apispec_plugins(app):
+    class TestPlugin(BasePlugin):
+        def operation_helper(self, path=None, operations=None, **kwargs) -> None:
+            operations.update({'post': 'some_injected_test_data'})
+
+    app.spec_plugins = [TestPlugin()]
+
+    @app.get('/plugin_test')
+    def single_value():
+        return 'plugin_test'
+
+    spec = app._get_spec('json')
+
+    assert spec['paths']['/plugin_test'].get('post') == 'some_injected_test_data'
